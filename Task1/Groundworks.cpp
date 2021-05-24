@@ -1,4 +1,7 @@
 #include<iostream>
+#include <iomanip>
+#include <fstream>
+
 /*******************************
  *Author: Prateek Garg
  *Date: 24th May 2021 
@@ -47,6 +50,26 @@ Available_Groundworks* initialize (int start_time[ ], int duration[ ], int n){
 
 
 int main(){
+    string names[MaxNum];
+    int start_time[MaxNum];
+    int duration[MaxNum];
+    int n=0;
+
+    ifstream inFile;
+    
+    inFile.open("Schedule.txt");
+    if (!inFile) {
+        cout << "Error: Unable to locate file";
+        exit(1);                                                           // terminate with error
+    }
+    
+    string tempString;
+
+    while (inFile >>names[n]>>start_time[n]>>duration[n]) {
+        n++;
+    }
+    
+    inFile.close();
 
     return 0;
 }
