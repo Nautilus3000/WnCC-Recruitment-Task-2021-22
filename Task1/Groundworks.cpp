@@ -66,9 +66,11 @@ int CalculateMaxGroundworks(Available_Groundworks* ptr){
     for (int i = 0; i < n; i++)
     {
         if(b[i]==1){
-            y[a[i]]=1;
-            a[i]=0;
-            x++;
+            if(y[a[i]]==0){
+                y[a[i]]=1;
+                a[i]=0;
+                x++;
+            }
         }
     }
     for (int i = 0; i < n; i++)
